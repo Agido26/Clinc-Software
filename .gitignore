@@ -4,7 +4,7 @@
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
 # Ignore Connection string in Data Access project
-clsConnectionString.cs
+clsConnection.cs
 
 # User-specific files
 *.rsuser
