@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Clicn_Software
+namespace Presintion_Layer
 {
     public partial class Form1 : Form
     {
@@ -17,6 +17,9 @@ namespace Clicn_Software
             InitializeComponent();
         }
 
-       
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Hi");
+        }
     }
 }

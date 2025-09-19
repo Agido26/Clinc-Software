@@ -1,4 +1,4 @@
-﻿namespace Clicn_Software
+﻿namespace Presintion_Layer
 {
     partial class Form1
     {

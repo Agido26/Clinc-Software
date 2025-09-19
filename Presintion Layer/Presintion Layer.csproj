@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4408C763-CDBE-44F0-8759-0DB018E5112F}</ProjectGuid>
+    <ProjectGuid>{4A99383E-090A-49EA-8A67-5BA1589AFE2E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Clicn_Software</RootNamespace>
-    <AssemblyName>Clicn Software</AssemblyName>
+    <RootNamespace>Presintion_Layer</RootNamespace>
+    <AssemblyName>Presintion Layer</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,6 +33,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -82,9 +84,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Business Layer\Business Layer.csproj">
-      <Project>{0a60a75a-24fe-4888-a349-92447b41509a}</Project>
-      <Name>Business Layer</Name>
+    <ProjectReference Include="..\Business\Business.csproj">
+      <Project>{d7e242a5-a26a-4b2b-a1a9-88a10acfc885}</Project>
+      <Name>Business</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
