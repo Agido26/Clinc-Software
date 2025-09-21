@@ -5,11 +5,11 @@ using System.Data.SqlClient;
 
 namespace Data_Access
 {
-    public class clsDataAccess
+    public class clsPatientData
     {
 
         public static int AddNewPatient(string FirstName,
-            string LastName,string DateOfBirth,string Gendor,string Phone,string Address,string Email
+            string LastName,DateTime DateOfBirth,string Gendor,string Phone,string Address,string Email
             )
 
         {
@@ -59,8 +59,8 @@ namespace Data_Access
              }
 
 
-        public static bool updatePatientByID(int ID,ref string FirstName, ref string LastName, ref string DateOfBirth,
-            ref string Gendor, ref string Phone, ref string Address, ref string Email)
+        public static bool updatePatientByID(int ID, string FirstName, string LastName, DateTime DateOfBirth,
+             string Gendor, string Phone, string Address,  string Email)
         {
             bool isUpdated = false;
             SqlConnection ConnectionString = new SqlConnection(clsConnection.Connectionstring);
@@ -110,7 +110,7 @@ namespace Data_Access
 
 
 
-        public static bool FindPaitentByID(int ID, ref string FirstName, ref string LastName, ref string DateOfBirth,
+        public static bool FindPaitentByID(int ID, ref string FirstName, ref string LastName, ref DateTime DateOfBirth,
             ref string Gendor, ref string Phone, ref string Address, ref string Email)
         {
             bool isFind= false;
@@ -138,9 +138,9 @@ namespace Data_Access
 
                     if (Reader["DateOfBirth"] != DBNull.Value)
                     {
-                        DateOfBirth = Reader["DateOfBirth"].ToString();
+                        DateOfBirth = (DateTime)Reader["DateOfBirth"];
                     }
-                    else DateOfBirth = "";
+                    else DateOfBirth = DateTime.Now;
 
                     if (Reader["Address"] != DBNull.Value)
                     { Address = (string)Reader["Address"]; }
@@ -172,6 +172,10 @@ namespace Data_Access
             finally { ConnectionString.Close(); }
             return isFind;
         }
+
+
+
+
 
 
 
