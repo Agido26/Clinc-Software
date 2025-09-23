@@ -81,6 +81,12 @@ namespace Business
 
 
 
+        public static DataTable FilterAppointmentsByPatienName(string PatientName)
+        {
+            return clsPatientData.FilterPatientsByName(PatientName);
+        }
+
+
         public bool Save()
         {
             switch (Mode)

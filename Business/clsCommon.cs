@@ -33,6 +33,11 @@ namespace Business
         }
 
 
+        public static DataTable ListAppointment()
+        {
+            return clsCommonData.GetAppointmentsInfos();
+        }
+
         public bool Save()
         {
             switch (Mode)

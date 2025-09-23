@@ -32,32 +32,52 @@ namespace Data_Access
             command.Parameters.AddWithValue("@LastName", LastName);
             command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
             command.Parameters.AddWithValue("@Gendor", Gendor);
-            command.Parameters.AddWithValue("@Address", Address);
-            command.Parameters.AddWithValue("@Email", Email);
-            command.Parameters.AddWithValue("@Phone", Phone);
 
+            if (Address != "")
+            {
+                command.Parameters.AddWithValue("@Address", Address);
+            }else
+            {
+                command.Parameters.AddWithValue("@Address", DBNull.Value);
+            }
+            if (Email != "")
+            {
+                command.Parameters.AddWithValue("@Email", Email);
+            }
+            else
+            {
+                command.Parameters.AddWithValue("@Email", DBNull.Value);
+            }
+
+            if (Phone != "")
+            {
+                command.Parameters.AddWithValue("@Phone", Phone);
+            }
+            else
+            {
+                command.Parameters.AddWithValue("@Phone", DBNull.Value);
+            }
 
             try
-            {
-                ConnectionString.Open();
-
-                object Result = command.ExecuteScalar();
-
-                if (Result != null && int.TryParse(Result.ToString(), out int NewID))
                 {
-                    ID = NewID;
-                }
-            }
-            catch (Exception ex)
-            { Console.WriteLine(ex); }
+                    ConnectionString.Open();
 
-            finally
-            { ConnectionString.Close(); }
+                    object Result = command.ExecuteScalar();
+
+                    if (Result != null && int.TryParse(Result.ToString(), out int NewID))
+                    {
+                        ID = NewID;
+                    }
+                }
+                catch (Exception ex)
+                { Console.WriteLine(ex); }
+
+                finally
+                { ConnectionString.Close(); }
 
                 return ID;
 
              }
-
 
         public static bool updatePatientByID(int ID, string FirstName, string LastName, DateTime DateOfBirth,
              string Gendor, string Phone, string Address,  string Email)
@@ -78,9 +98,32 @@ namespace Data_Access
             Command.Parameters.AddWithValue("@LastName", LastName);
             Command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
             Command.Parameters.AddWithValue("@Gendor", Gendor);
-            Command.Parameters.AddWithValue("@Address", Address);
-            Command.Parameters.AddWithValue("@Email", Email);
-            Command.Parameters.AddWithValue("@Phone", Phone);
+
+            if (Address != "")
+            {
+                Command.Parameters.AddWithValue("@Address", Address);
+            }
+            else
+            {
+                Command.Parameters.AddWithValue("@Address", DBNull.Value);
+            }
+            if (Email != "")
+            {
+                Command.Parameters.AddWithValue("@Email", Email);
+            }
+            else
+            {
+                Command.Parameters.AddWithValue("@Email", DBNull.Value);
+            }
+
+            if (Phone != "")
+            {
+                Command.Parameters.AddWithValue("@Phone", Phone);
+            }
+            else
+            {
+                Command.Parameters.AddWithValue("@Phone", DBNull.Value);
+            }
 
             try 
             {
@@ -107,8 +150,6 @@ namespace Data_Access
 
 
         }
-
-
 
         public static bool FindPaitentByID(int ID, ref string FirstName, ref string LastName, ref DateTime DateOfBirth,
             ref string Gendor, ref string Phone, ref string Address, ref string Email)
@@ -173,7 +214,38 @@ namespace Data_Access
             return isFind;
         }
 
+        public static DataTable FilterPatientsByName(string Name)
+        {
+            DataTable Table = new DataTable();
 
+            SqlConnection connection = new SqlConnection(clsConnection.Connectionstring);
+
+            string Query = @"select * from ListAppointmentInfo
+                             where ListAppointmentInfo.Patient like @Name; ";
+
+
+            SqlCommand Command = new SqlCommand(Query, connection);
+            Command.Parameters.AddWithValue("@Name", Name+"%");
+
+            try
+            {
+                connection.Open();
+                SqlDataReader Reader = Command.ExecuteReader();
+                if (Reader.HasRows)
+                {
+                    Table.Load(Reader);
+                }
+
+                Reader.Close();
+            }
+            catch (Exception ex) { Console.WriteLine(ex); }
+            finally { connection.Close(); }
+            return Table;
+
+
+
+
+        }
 
 
 

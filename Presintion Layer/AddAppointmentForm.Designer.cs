@@ -1,6 +1,6 @@
 ﻿namespace Presintion_Layer
 {
-    partial class AddAppointment
+    partial class AddAppointmentForm
     {
         /// <summary>
         /// Required designer variable.
@@ -49,7 +49,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.tbNote = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnHome = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.dtpBirth = new System.Windows.Forms.DateTimePicker();
@@ -255,17 +254,6 @@
             this.label11.TabIndex = 21;
             this.label11.Text = "Additional Note";
             // 
-            // btnHome
-            // 
-            this.btnHome.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Location = new System.Drawing.Point(22, 28);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(60, 34);
-            this.btnHome.TabIndex = 22;
-            this.btnHome.Text = "Home";
-            this.btnHome.UseVisualStyleBackColor = false;
-            // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -313,7 +301,7 @@
             this.panel1.TabIndex = 26;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // AddAppointment
+            // AddAppointmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -324,7 +312,6 @@
             this.Controls.Add(this.dtpBirth);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnHome);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.tbNote);
             this.Controls.Add(this.label10);
@@ -346,7 +333,7 @@
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "AddAppointment";
+            this.Name = "AddAppointmentForm";
             this.Text = "Appointments";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -379,7 +366,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tbNote;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.DateTimePicker dtpBirth;

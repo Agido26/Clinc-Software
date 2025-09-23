@@ -49,11 +49,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddAppointment.cs">
+    <Compile Include="AddAppointmentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddAppointment.Designer.cs">
-      <DependentUpon>AddAppointment.cs</DependentUpon>
+    <Compile Include="AddAppointmentForm.Designer.cs">
+      <DependentUpon>AddAppointmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo.cs" />
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListAppointmensForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListAppointmensForm.Designer.cs">
+      <DependentUpon>ListAppointmensForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainScreen.cs">
       <SubType>Form</SubType>
@@ -63,8 +76,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddAppointment.resx">
-      <DependentUpon>AddAppointment.cs</DependentUpon>
+    <EmbeddedResource Include="AddAppointmentForm.resx">
+      <DependentUpon>AddAppointmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListAppointmensForm.resx">
+      <DependentUpon>ListAppointmensForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainScreen.resx">
       <DependentUpon>MainScreen.cs</DependentUpon>
@@ -98,6 +117,11 @@
       <Name>Business</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="UI\Photo\Plus for new Appointment btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UI\Photo\list.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

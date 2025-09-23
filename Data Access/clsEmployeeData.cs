@@ -37,6 +37,72 @@ namespace Data_Access
 
 
       
+        public static bool FindUserByNameAndPasswoord(string username, string password)
+        {
+            bool isFind =false;
+            SqlConnection Connection= new SqlConnection(clsConnection.Connectionstring);
+            string Query = @"Select UserID,UserName, Password from LoginUsers
+                             where UserName=@User and Password=@Password";
+            SqlCommand com=new SqlCommand(Query, Connection);
+            com.Parameters.AddWithValue("@User", username);
+            com.Parameters.AddWithValue("@Password", password);
+            try 
+            {
+                Connection.Open();
+                SqlDataReader result= com.ExecuteReader();
+                if (result.Read())
+                {
+                    isFind =true;
+                   
+                }
+             result.Close();
+            
+            }
+            catch (Exception ex){ Console.WriteLine(ex);isFind = false; }
+            finally { Connection.Close(); }
+
+
+            return isFind;
+        }
+
+
+
+        public static string GetEmployeeNameByUserName(string username, string password)
+        {
+            string isFind = "";
+            SqlConnection Connection = new SqlConnection(clsConnection.Connectionstring);
+            string Query = @"Select Employee= P.FirstName+' '+P.LastName,
+                             UserName,
+                             Password from LoginUsers
+                             join
+                             Employees E on E.EmployeeID=LoginUsers.EmployeeID 
+                             join
+                             Persons P on E.PersonID=P.PersonID
+                             where UserName=@User and Password=@Password";
+
+            SqlCommand com = new SqlCommand(Query, Connection);
+            com.Parameters.AddWithValue("@User", username);
+            com.Parameters.AddWithValue("@Password", password);
+            try
+            {
+                Connection.Open();
+                SqlDataReader result = com.ExecuteReader();
+                if (result.Read())
+                {
+                    isFind = (string)result["Employee"];
+
+                }
+                result.Close();
+
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex); }
+            finally { Connection.Close(); }
+
+
+            return isFind;
+        }
+
 
 
 

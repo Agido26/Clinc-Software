@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Presintion_Layer
 {
-    public partial class AddAppointment : Form
+    public partial class AddAppointmentForm : Form
     {
-        public AddAppointment()
+        public AddAppointmentForm()
         {
             InitializeComponent();
             
@@ -22,11 +22,15 @@ namespace Presintion_Layer
         clsPatients newPatient= new clsPatients();
         clsCommon Appointment = new clsCommon();
         DataTable dt = clsEmplyees.GetAllEmployees();
-        DataRow[] Employeeinfo;
         int EmployeeID = -1;
 
         void _FillCbDoctors()
         {
+            if (dt == null)
+            {
+                MessageBox.Show("No data available for doctors.");
+                return;
+            }
            
             foreach (DataRow dr in dt.Rows)
             {
@@ -125,9 +129,10 @@ namespace Presintion_Layer
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-           MainScreen MainForm = new MainScreen();
-            MainForm.Show();
+          
+          
             this.Close();
+
         }
 
         private void tbFirstName_TextChanged(object sender, EventArgs e)

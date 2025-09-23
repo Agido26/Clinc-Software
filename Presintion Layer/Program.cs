@@ -16,7 +16,7 @@ namespace Presintion_Layer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AddAppointment());
+            Application.Run(new LoginForm());
         }
     }
 }

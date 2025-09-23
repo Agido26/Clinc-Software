@@ -6,20 +6,22 @@ namespace Business
 {
     public class clsEmplyees
     {
+
         public static DataTable GetAllEmployees()
-        {
-            if (clsEmployeeData.GetAllEmployee() != null)
-            {
+        {         
                 return clsEmployeeData.GetAllEmployee();
-            }
-            else return null;
-        
         }
 
 
 
-
-
+        public static bool IsEmployeeExist(string Name, string Password)
+        {
+            return clsEmployeeData.FindUserByNameAndPasswoord(Name, Password); 
+        }
+        public static string GetNameifEmployeeExist(string Name, string Password)
+        {
+            return clsEmployeeData.GetEmployeeNameByUserName(Name, Password);
+        }
 
 
     }
