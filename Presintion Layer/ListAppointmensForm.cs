@@ -39,26 +39,23 @@ namespace Presintion_Layer
                 dgvAppointmentList.DataSource = dt;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             SearchByPaitenName();
         }
 
-        private void tbPatientSearch_Click(object sender, EventArgs e)
+        private void button2_Click_1(object sender, EventArgs e)
         {
-
-            if (tbPatientSearch.ForeColor == System.Drawing.Color.Silver)
-            {
-                tbPatientSearch.Text = "";
-                tbPatientSearch.ForeColor = System.Drawing.Color.Black;
-            }
-
+            MainScreen Home = new MainScreen();
+            this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void moreInformationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MainScreen Home=new MainScreen();
-            this.Close();
+
+            UserInfo.Id=(int)dgvAppointmentList.SelectedCells[0].Value;
+            PatientCardForm Form=new PatientCardForm();
+            Form.ShowDialog();
         }
     }
 

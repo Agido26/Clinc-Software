@@ -36,8 +36,14 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.7\lib\net48\Guna.UI2.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,6 +61,24 @@
     <Compile Include="AddAppointmentForm.Designer.cs">
       <DependentUpon>AddAppointmentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PatientCardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientCardForm.Designer.cs">
+      <DependentUpon>PatientCardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\ResourcesBase.cs" />
+    <Compile Include="Properties\ResourcesBase1.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -76,6 +100,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="clsValidation.cs" />
     <EmbeddedResource Include="AddAppointmentForm.resx">
       <DependentUpon>AddAppointmentForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -88,16 +113,15 @@
     <EmbeddedResource Include="MainScreen.resx">
       <DependentUpon>MainScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PatientCardForm.resx">
+      <DependentUpon>PatientCardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -122,6 +146,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="UI\Photo\list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UI\Photo\OpenEye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UI\Photo\ClosedEye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UI\Photo\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UI\Photo\logout - Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UI\Photo\logout - Copy %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UI\Photo\Plus for new Appointment btn - Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UI\Photo\Plus for new Appointment btn - Copy - Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UI\Photo\logo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UI\Photo\logo3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UI\Photo\List - Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UI\Photo\List - Copy %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UI\Boy.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

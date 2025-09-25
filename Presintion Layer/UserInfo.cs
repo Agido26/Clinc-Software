@@ -10,7 +10,7 @@ namespace Presintion_Layer
     {
         public static string UserName {  get; set; }
 
-
+        public static int Id {  get; set; }
 
 
     }

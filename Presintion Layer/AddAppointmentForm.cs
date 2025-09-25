@@ -83,7 +83,7 @@ namespace Presintion_Layer
 
             if (!rbFemale.Checked && !rbMale.Checked)
             {
-                errorProvider1.SetError(panel1, "Gender can't be unchecked"); valid = false;
+                errorProvider1.SetError(rbFemale, "Gender can't be unchecked"); valid = false;
 
             }
             if (string.IsNullOrEmpty(cbDoctors.Text))
@@ -127,22 +127,31 @@ namespace Presintion_Layer
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-          
-          
-            this.Close();
-
-        }
-
-        private void tbFirstName_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
+
+        private void btnS_Click(object sender, EventArgs e)
+        {
+            errorProvider1.Clear();
+            if (!Validation())
+            { return; }
+
+            EmployeeID = int.Parse(dt.Rows[cbDoctors.SelectedIndex][0].ToString());
+
+            AddAppointmentInformation();
+            if (Appointment.Save())
+            { MessageBox.Show("Appointment was Added Succefully"); }
+            else MessageBox.Show("Somthing Wrong");
+
+        }
+
+        private void btnC_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+    
     }
 }

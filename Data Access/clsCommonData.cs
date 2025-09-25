@@ -63,7 +63,8 @@ namespace Data_Access
 
             SqlConnection connection= new SqlConnection(clsConnection.Connectionstring);
 
-            string Query = @"Select * from ListAppointmentInfo";
+            string Query = @"Select AppointmentID, Patient, Doctor,Status from ListAppointmentInfo
+                                Order by AppointmentID Desc";
 
             SqlCommand Command= new SqlCommand(Query,connection);
 
@@ -87,6 +88,55 @@ namespace Data_Access
         }
 
 
+        public static DataTable GetApppointmentByID(int ID)
+        {
+
+            DataTable Find=new DataTable();
+
+            SqlConnection connection = new SqlConnection(clsConnection.Connectionstring);
+
+            string Query = @"Select * from ListAppointmentInfo
+                               WHERE AppointmentId=@ID";
+
+            SqlCommand Command = new SqlCommand(Query, connection);
+            Command.Parameters.AddWithValue("@ID", ID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader Reader = Command.ExecuteReader();
+
+                if (Reader.Read())
+                {
+                    Find.Columns.Add("Patient",typeof(string));
+                    Find.Columns.Add("Doctor", typeof(string));
+                    Find.Columns.Add("Gendor", typeof(string));
+                    Find.Columns.Add("AppointmentDate", typeof(DateTime));
+                    Find.Columns.Add("Birth", typeof(DateTime));
+                    Find.Columns.Add("Status", typeof(string));
+                    Find.Columns.Add("Note", typeof(string));
+                    Find.Columns.Add("Phone", typeof(string));
+                    Find.Columns.Add("AppointmentID", typeof(int));
+
+                    DataRow row=Find.NewRow();
+                    row["Patient"] = Reader["Patient"];
+                    row["Doctor"] = Reader["Doctor"];
+                    row["Gendor"] = Reader["Gendor"];
+                    row["AppointmentDate"] = Reader["AppointmentDate"];
+                    row["Birth"] = Reader["DateOfBirth"];
+                    row["Status"] = Reader["Status"];
+                    row["Note"] = Reader["Note"];
+                    row["Phone"] = Reader["Phone"];
+                    row["AppointmentID"] = Reader["AppointmentID"];
+                    Find.Rows.Add(row);
+                }
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex); }
+            finally { connection.Close(); }
+            return Find;
+
+        }
 
 
     }

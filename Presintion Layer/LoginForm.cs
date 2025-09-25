@@ -36,19 +36,26 @@ namespace Presintion_Layer
             else { MessageBox.Show("User or passwrd was wrong try again"); }
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void btnLogin_Click_2(object sender, EventArgs e)
         {
-            CheckForUser();
+            CheckForUser();  
         }
 
-        private void button1_MouseEnter(object sender, EventArgs e)
+       
+        private void tbPasssword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton1_MouseEnter(object sender, EventArgs e)
         {
             tbPasssword.UseSystemPasswordChar = false;
         }
 
-        private void button1_MouseLeave(object sender, EventArgs e)
+        private void guna2ImageButton1_MouseLeave(object sender, EventArgs e)
         {
             tbPasssword.UseSystemPasswordChar = true;
+
         }
     }
 }

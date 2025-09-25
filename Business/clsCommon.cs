@@ -12,6 +12,11 @@ namespace Business
         public int AppointmentID { get; set; }
         public string AppointmentNote { get; set; }
         public DateTime ApointmentDate { get; set; }
+        public string Patient {  get; set; }
+        public string Doctor {  get; set; }
+        public string Phone {  get; set; }
+        public char Gendor {  get; set; }
+        public DateTime BirthDay {  get; set; }
 
         enum enMode { Addnew, Update }
         enMode Mode = enMode.Addnew;
@@ -36,6 +41,11 @@ namespace Business
         public static DataTable ListAppointment()
         {
             return clsCommonData.GetAppointmentsInfos();
+        }
+
+        public static DataTable FindAppointmentByID(int ID)
+        {
+            return clsCommonData.GetApppointmentByID(ID);
         }
 
         public bool Save()
